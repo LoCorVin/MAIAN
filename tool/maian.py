@@ -21,7 +21,7 @@ SOFTWARE.
 '''
 
 from __future__ import print_function
-from web3 import Web3, KeepAliveRPCProvider, IPCProvider
+from web3 import Web3, IPCProvider
 import argparse,subprocess,sys
 
 
@@ -110,9 +110,9 @@ def main(args):
         # If check on leak then we need to send Ether to the contract address before deploying it
         # This helps later to verify that the contract leaks Ether
         # Sending Ether has to be done prior to deployment of contract because the contract code may not allow arbitrary account to send Ether
-        if 1 == MyGlobals.checktype:    
-            supposed_contract_address = predict_contract_address(MyGlobals.etherbase_account)
-            print('\033[1m[ ] Sending Ether to contract %s  \033[0m' % supposed_contract_address, end='')            
+        if 1 == MyGlobals.checktype:
+            supposed_contract_address = predict_contract_address(Web3.toChecksumAddress(MyGlobals.etherbase_account))
+            print('\033[1m[ ] Sending Ether to contract %s  \033[0m' % supposed_contract_address, end='')        
             execute_transactions([{'from':'0x'+MyGlobals.sendingether_account,'to':supposed_contract_address,'value':MyGlobals.send_initial_wei}])
             print('\033[92m Sent! \033[0m')
 

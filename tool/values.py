@@ -1,4 +1,4 @@
-from web3 import Web3, KeepAliveRPCProvider, IPCProvider
+from web3 import Web3, IPCProvider
 import copy
 from z3 import *
 
@@ -146,7 +146,7 @@ class MyGlobals(object):
     confirming_transaction ='0x3094c123bd9ffc3f41dddefd3ea88e4296e45015b62e892f8bdf9d1b645ef2d2'
     etherbase_account = '0x69190bde29255c02363477462f17e816a9533d3a'
     adversary_account = '5a1cd1d07d9f59898c434ffc90a74ecd937feb12'
-    sendingether_account = '564625b3ae8d0602a8fc0fe22c884b091098417f'
+    sendingether_account = '564625b3aE8d0602a8fC0fE22c884B091098417F'
     send_initial_wei = 44
     web3 = None
 
